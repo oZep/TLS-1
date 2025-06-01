@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IglooSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2.2">
+  <PlayerSettings Name="player">
+    <usePlayer>true</usePlayer>
+    <rotationMode>0</rotationMode>
+    <movementInput>0</movementInput>
+    <movementMode>2</movementMode>
+    <runSpeed>10</runSpeed>
+    <walkSpeed>5</walkSpeed>
+    <smoothTime>10</smoothTime>
+    <optitrackControllerRigidBodyID>2</optitrackControllerRigidBodyID>
+    <crosshairHideMode>0</crosshairHideMode>
+    <isCrosshair3D>false</isCrosshair3D>
+  </PlayerSettings>
+  <NetworkSettings>
+    <inPort>9007</inPort>
+    <outPort>9001</outPort>
+    <outIP>127.0.0.1</outIP>
+  </NetworkSettings>
+  <UISettings>
+    <useUI>false</useUI>
+    <screenName>Cylinder</screenName>
+    <screenPos x="0" y="0" z="0" />
+    <screenRot x="0" y="0" z="0" />
+    <screenScale x="6" y="2.1" z="6" />
+    <followCrosshair>true</followCrosshair>
+    <followSpeed>10</followSpeed>
+    <debugUIMode>false</debugUIMode>
+  </UISettings>
+  <HeadSettings>
+    <headPositionOffset x="0" y="0" z="0" />
+    <headRotationOffset x="0" y="0" z="0" />
+    <headtracking>false</headtracking>
+    <headTrackingInput>0</headTrackingInput>
+    <optitrackServerIP>127.0.0.1</optitrackServerIP>
+    <optitrackHeadRigidBodyID>1</optitrackHeadRigidBodyID>
+  </HeadSettings>
+  <TouchScreenSettings>
+    <XPositionStart>1</XPositionStart>
+    <XPositionEnd>0</XPositionEnd>
+    <YPositionStart>1</YPositionStart>
+    <YPositionEnd>0</YPositionEnd>
+    <UseTouchScreen>false</UseTouchScreen>
+  </TouchScreenSettings>
+</IglooSettings>
