@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
+  - WarpBlendOutputCamera
   - MainLight
   - CinemachineTarget
   - ScreenCamera
@@ -23,9 +24,9 @@ TagManager:
   - Camera
   - MainCameraOnly
   - Oasis_TerrainBake
-  - 
-  - 
-  - 
+  - IglooScreen
+  - IglooPlayer
+  - IglooCompositeQuad
   - 
   - 
   - 
@@ -49,32 +50,3 @@ TagManager:
   - Default
   - Screen
   - Lamps
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
