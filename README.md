@@ -37,6 +37,4 @@ Press the **Play** button in the Unity editor to run the scene and experience th
 
 ---
 
-Progress Vid #1 - 2025/06/02
-
 
