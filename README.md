@@ -37,4 +37,8 @@ Press the **Play** button in the Unity editor to run the scene and experience th
 
 ---
 
+### Asset Delcaration
+Space Assets - From the Universal 3D sample located within Unity Hub when first creating a Unity project
+
+
 
