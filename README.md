@@ -38,6 +38,5 @@ Press the **Play** button in the Unity editor to run the scene and experience th
 ---
 
 Progress Vid #1 - 2025/06/02
-https://github.com/user-attachments/assets/a4240260-52f2-4bf4-a89e-e0490f4f60f1
 
 
