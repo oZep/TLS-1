@@ -1,22 +1,23 @@
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class StraightBullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speed; // How fast it falls
+    private float radius;
 
-    public GameObject projectile;
-    public Transform TopBar;
-    public float speed;
-    public Quaternion spawnRotation; 
-    public int destroyBulletTimer;
     void Start()
     {
-
-        GameObject EnemyBullet = Instantiate(projectile, TopBar.transform.position, spawnRotation);
-        EnemyBullet.GetComponent<Rigidbody>().AddForce(transform.up * -speed);
-        Destroy(EnemyBullet, destroyBulletTimer);
-
+        // Distance from the center (assuming centered at origin)
+        radius = new Vector2(transform.position.x, transform.position.z).magnitude;
     }
 
+    void Update()
+    {
+        // Move down over time
+        transform.position += Vector3.down * speed * Time.deltaTime;
 
+        // Lock bullet to the curved cylinder wall
+        Vector3 flatXZ = new Vector3(transform.position.x, 0f, transform.position.z).normalized * radius;
+        transform.position = new Vector3(flatXZ.x, transform.position.y, flatXZ.z);
+    }
 }
