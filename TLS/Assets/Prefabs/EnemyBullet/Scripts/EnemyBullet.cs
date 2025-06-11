@@ -20,4 +20,9 @@ public class StraightBullet : MonoBehaviour
         Vector3 flatXZ = new Vector3(transform.position.x, 0f, transform.position.z).normalized * radius;
         transform.position = new Vector3(flatXZ.x, transform.position.y, flatXZ.z);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name != "TopBar") Destroy(gameObject);
+    }
+
 }
