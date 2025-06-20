@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class StraightBullet : MonoBehaviour
 {
     public float speed; // How fast it falls
     private float radius;
+    private hearts healthBar;
 
     void Start()
     {
         // Distance from the center (assuming centered at origin)
         radius = new Vector2(transform.position.x, transform.position.z).magnitude;
+        healthBar = FindFirstObjectByType<hearts>();
     }
 
     void Update()
@@ -22,7 +26,17 @@ public class StraightBullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "TopBar") Destroy(gameObject);
+        if (collision.gameObject.name != "TopBar") {
+            Destroy(gameObject);
+            if (healthBar != null)
+            {
+                healthBar.LoseHealth(1);
+            }
+            else
+            {
+                Debug.LogError("healthBar reference is null!");
+            }
+        };
     }
 
 }
