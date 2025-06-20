@@ -15,9 +15,11 @@ public class SpinAroundPivot : MonoBehaviour
     {
 
         float horizontalInput = Input.GetAxis("Horizontal");
-        bool runInput = Input.GetKeyDown(KeyCode.LeftShift);
+        bool runInput = Input.GetButtonDown("Submit");
 
         float rotationAmount = horizontalInput * rotationSpeed * Time.deltaTime * (runInput ? 4 : 1);
+        if (runInput)
+            Debug.Log("Dash");
 
         if (pivotPoint != null)
         {
