@@ -32,6 +32,11 @@ public class hearts : MonoBehaviour{
             healthBar[i].sprite = i < currentHealth ? fullHeart : emptyHeart;
             healthBar[i].enabled = (i < maxNumberHearts);
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            currentHealth = maxNumberHearts;
+        }
     }
 
     public void LoseHealth(int dmg)

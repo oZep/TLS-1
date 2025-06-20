@@ -33,6 +33,12 @@ public class TimedBulletSpawner : MonoBehaviour
             currentIndex++;
             timeSinceLastSpawn = 0f;
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            currentIndex = 0;
+            timeSinceLastSpawn = 0f;
+        }
     }
 
 public Transform pivotCenter; // Assign in inspector (e.g., the center of the cylinder)
