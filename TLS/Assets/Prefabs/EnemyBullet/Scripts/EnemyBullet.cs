@@ -5,38 +5,43 @@ using System.Collections;
 public class StraightBullet : MonoBehaviour
 {
     public float speed; // How fast it falls
-    private float radius;
+    private float initialX;
+    private float initialZ;
     private hearts healthBar;
 
     void Start()
     {
-        // Distance from the center (assuming centered at origin)
-        radius = new Vector2(transform.position.x, transform.position.z).magnitude;
+        // Store the initial X and Z positions
+        initialX = transform.position.x;
+        initialZ = transform.position.z;
         healthBar = FindFirstObjectByType<hearts>();
+
     }
+    
 
     void Update()
     {
-        // Move down over time
+        // Move down over time (only affect Y position)
         transform.position += Vector3.down * speed * Time.deltaTime;
-
-        // Lock bullet to the curved cylinder wall
-        Vector3 flatXZ = new Vector3(transform.position.x, 0f, transform.position.z).normalized * radius;
-        transform.position = new Vector3(flatXZ.x, transform.position.y, flatXZ.z);
+        
+        // Lock X and Z positions to their initial values
+        transform.position = new Vector3(initialX, transform.position.y, initialZ);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name != "TopBar") {
             Destroy(gameObject);
-            if (healthBar != null)
+            if (healthBar != null && collision.gameObject.name == "BottomBar")
             {
                 healthBar.LoseHealth(1);
+                Debug.Log("damage taken");
             }
             else
             {
-                Debug.LogError("healthBar reference is null!");
+                Debug.Log("bullet shot");
+                //Debug.LogError("healthBar reference is null!");
             }
         };
     }
-
 }

@@ -12,7 +12,7 @@ public class shoot : MonoBehaviour
     public int destroyBulletTimer;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             GameObject bullet = Instantiate(projectile, Top.transform.position, Top.transform.rotation) as GameObject;
             bullet.GetComponent<Rigidbody>().AddForce(transform.up*speed);

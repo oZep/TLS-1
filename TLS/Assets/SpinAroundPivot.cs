@@ -1,9 +1,13 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class SpinAroundPivot : MonoBehaviour
 {
 
     public float rotationSpeed = 100f;
+
+    public double sprint = 6;
+    public double sprintTimeMax = 6;
     public Transform pivotPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,19 +17,24 @@ public class SpinAroundPivot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(sprint);
+        if (sprint < sprintTimeMax)
+        {
+            sprint += 0.25;
+        }
         float horizontalInput = Input.GetAxis("Horizontal");
-        bool runInput = Input.GetButtonDown("Submit");
 
-        float rotationAmount = horizontalInput * rotationSpeed * Time.deltaTime * (runInput ? 4 : 1);
-        if (runInput)
-            Debug.Log("Dash");
+        bool runInput = Input.GetButton("Submit");
 
+
+        float rotationAmount = horizontalInput * rotationSpeed * Time.deltaTime * ((runInput&&sprint>0) ? 2 : 1);
+        if (runInput&&sprint >= -0.5)
+        {
+            sprint -= 0.5;
+        }
         if (pivotPoint != null)
         {
-
             transform.RotateAround(pivotPoint.position, Vector3.up, rotationAmount);
-
         }
     }
 

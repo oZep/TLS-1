@@ -65433,6 +65433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  sprint: 10
+  sprintTimeMax: 10
   pivotPoint: {fileID: 1499517557}
 --- !u!64 &2066561634
 MeshCollider:
