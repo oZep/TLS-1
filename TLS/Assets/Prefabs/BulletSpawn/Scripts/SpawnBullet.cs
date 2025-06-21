@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.PlayerLoop;
+using UnityEditor;
 
 public class TimedBulletSpawner : MonoBehaviour
 {
@@ -18,16 +20,20 @@ public class TimedBulletSpawner : MonoBehaviour
     private float timeSinceLastSpawn = 0f;
     private int currentIndex = 0;
 
+    private bool spawning = true;
+
     void Update()
     {
+
         if (currentIndex >= spawnSchedule.Count)
-            return;
+            spawning=false;
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        BulletSpawnEvent currentEvent = spawnSchedule[currentIndex];
+        
+        BulletSpawnEvent currentEvent = spawnSchedule[spawning? currentIndex : 0];
 
-        if (timeSinceLastSpawn >= currentEvent.spawnDelay)
+        if (timeSinceLastSpawn >= currentEvent.spawnDelay && spawning)
         {
             SpawnBullet(currentEvent);
             currentIndex++;
@@ -38,23 +44,26 @@ public class TimedBulletSpawner : MonoBehaviour
         {
             currentIndex = 0;
             timeSinceLastSpawn = 0f;
+            spawning=true;
         }
     }
+    
 
 public Transform pivotCenter; // Assign in inspector (e.g., the center of the cylinder)
 
-void SpawnBullet(BulletSpawnEvent evt)
-{
-    float rad = evt.angleDegrees * Mathf.Deg2Rad;
+    void SpawnBullet(BulletSpawnEvent evt)
+    {
+        float rad = evt.angleDegrees * Mathf.Deg2Rad;
 
-    // Spawn relative to the pivotCenter
-    Vector3 offset = new Vector3(Mathf.Cos(rad), 0f, Mathf.Sin(rad)) * spawnRadius;
-    Vector3 spawnPosition = pivotCenter.position + offset;
+        // Spawn relative to the pivotCenter
+        Vector3 offset = new Vector3(Mathf.Cos(rad), 0f, Mathf.Sin(rad)) * spawnRadius;
+        Vector3 spawnPosition = pivotCenter.position + offset;
 
-    spawnPosition.y = transform.position.y; // Keep height from spawner
+        spawnPosition.y = transform.position.y; // Keep height from spawner
 
-    Instantiate(evt.bulletType, spawnPosition, Quaternion.identity);
-    Debug.Log($"Spawned bullet at {spawnPosition} (angle {evt.angleDegrees})");
-}
+        Instantiate(evt.bulletType, spawnPosition, Quaternion.identity);
+        Debug.Log($"Spawned bullet at {spawnPosition} (angle {evt.angleDegrees})");
+        Debug.Log(currentIndex);
+    }
 
 }

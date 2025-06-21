@@ -17,15 +17,20 @@ public class StraightBullet : MonoBehaviour
         healthBar = FindFirstObjectByType<hearts>();
 
     }
-    
+
 
     void Update()
     {
         // Move down over time (only affect Y position)
         transform.position += Vector3.down * speed * Time.deltaTime;
-        
+
         // Lock X and Z positions to their initial values
         transform.position = new Vector3(initialX, transform.position.y, initialZ);
+        
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

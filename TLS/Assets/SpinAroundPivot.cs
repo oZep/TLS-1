@@ -17,7 +17,7 @@ public class SpinAroundPivot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(sprint);
+        //Debug.Log(sprint);
         if (sprint < sprintTimeMax)
         {
             sprint += 0.25;
