@@ -166,7 +166,7 @@ MonoBehaviour:
   spawnSchedule:
   - spawnDelay: 0
     angleDegrees: 0
-    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
   - spawnDelay: 3
     angleDegrees: 90
     bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
@@ -1410,7 +1410,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
