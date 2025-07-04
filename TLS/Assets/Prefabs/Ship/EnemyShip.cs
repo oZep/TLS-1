@@ -56,9 +56,9 @@ public class PivotingShip : MonoBehaviour
     void ShootBulletDownward()
     {
         // Create bullet slightly below current position
-        Vector3 spawnPosition = transform.position + Vector3.down * 0.5f;
+        Vector3 spawnPosition = transform.position + Vector3.down * 2f;
         // Instantiate with downward rotation
-        GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.Euler(90, 0, 0));
+        GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.identity);
 
         Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
@@ -69,8 +69,9 @@ public class PivotingShip : MonoBehaviour
         Debug.Log(collision.gameObject.name);
 
         //transform.RotateAround(pivotPoint.position, Vector3.up, orbitSpeed * Time.deltaTime);
-        if (collision.gameObject.name != "TopBar")
+        if (collision.gameObject.name != "TopBar" && collision.gameObject.name != "EnemyRocket(Clone)" && collision.gameObject.name != "EnemyBullet(Clone)")
         {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
             if (healthBar != null && collision.gameObject.name == "BottomBar")
             {
                 healthBar.LoseHealth(1);
@@ -84,14 +85,8 @@ public class PivotingShip : MonoBehaviour
                 Destroy(collision.gameObject);
                 Debug.Log("health" + health);
             }
-            if (collision.gameObject.name == "EnemyRocket"||collision.gameObject.name == "EnemyBullet")
-            {
-                
-            }
-            else
-            {
-                //Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), GetComponent<Collider>(), true);
-            }
+
+
 
         }
     }

@@ -47,8 +47,9 @@ public class PivotingBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         transform.RotateAround(pivotPoint.position, Vector3.up, orbitSpeed * Time.deltaTime);
-        if (collision.gameObject.name != "TopBar" || collision.gameObject.name != "EnemyShip(Clone)")
+        if (collision.gameObject.name != "TopBar" && collision.gameObject.name != "EnemyShip(Clone)" && collision.gameObject.name != "EnemyBullet(Clone)")
         {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
             Destroy(gameObject);
 
             if (healthBar != null && collision.gameObject.name == "BottomBar")

@@ -124,10 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fc6dca3b9aefb4a9f94de31f9871a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  orbitSpeed: -30
+  speed: 1
+  orbitSpeed: -300
   bullet: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
-  shootInterval: 5
+  shootInterval: 1
 --- !u!54 &5913473836981975930
 Rigidbody:
   m_ObjectHideFlags: 0

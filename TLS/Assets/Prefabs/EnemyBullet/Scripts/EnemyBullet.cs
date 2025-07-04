@@ -35,7 +35,10 @@ public class StraightBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "TopBar") {
+        if (collision.gameObject.name != "TopBar" && collision.gameObject.name != "EnemyRocket(Clone)" && collision.gameObject.name != "EnemyShip(Clone)")
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
+
             Destroy(gameObject);
             if (healthBar != null && collision.gameObject.name == "BottomBar")
             {
@@ -47,6 +50,6 @@ public class StraightBullet : MonoBehaviour
                 Debug.Log("bullet shot");
                 //Debug.LogError("healthBar reference is null!");
             }
-        };
+        }
     }
 }
