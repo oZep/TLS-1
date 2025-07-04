@@ -39,6 +39,7 @@ Press the **Play** button in the Unity editor to run the scene and experience th
 
 ### Asset Delcaration
 Space Assets - From the Universal 3D sample located within the Unity Hub when creating a new Unity project
-
+Parts of the code was writen by AI
+Sprites drawn by Alex
 
 
