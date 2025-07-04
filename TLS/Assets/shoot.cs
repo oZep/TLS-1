@@ -23,7 +23,7 @@ public class shoot : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);
         Debug.Log(collision.gameObject.tag);
         Debug.Log("YUPYUP");
     }

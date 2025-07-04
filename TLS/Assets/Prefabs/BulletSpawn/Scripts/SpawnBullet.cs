@@ -16,6 +16,7 @@ public class TimedBulletSpawner : MonoBehaviour
 
     public List<BulletSpawnEvent> spawnSchedule; // change spawn list with the inspec
     public float spawnRadius = 5f;
+    public int endLoopIndexStart;
 
     private float timeSinceLastSpawn = 0f;
     private int currentIndex = 0;
@@ -27,11 +28,13 @@ public class TimedBulletSpawner : MonoBehaviour
 
         if (currentIndex >= spawnSchedule.Count)
             spawning = false;
+            // channge to 
+            //currentIndex = endLoopIndexStart;
 
         timeSinceLastSpawn += Time.deltaTime;
 
 
-        BulletSpawnEvent currentEvent = spawnSchedule[spawning ? currentIndex : 0];
+        BulletSpawnEvent currentEvent = spawnSchedule[spawning ? currentIndex : endLoopIndexStart];
 
         if (timeSinceLastSpawn >= currentEvent.spawnDelay && spawning)
         {
@@ -72,7 +75,7 @@ public class TimedBulletSpawner : MonoBehaviour
 while true{
     if true{
         while is true: no fucking way 
-        Unknown craft caused 911, inside job
+        UnknownCraft caused 911, inside job
     }
 }
 */

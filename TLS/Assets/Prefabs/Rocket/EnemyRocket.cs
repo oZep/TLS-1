@@ -46,8 +46,11 @@ public class PivotingBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "TopBar") {
+        transform.RotateAround(pivotPoint.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        if (collision.gameObject.name != "TopBar" || collision.gameObject.name != "EnemyShip(Clone)")
+        {
             Destroy(gameObject);
+
             if (healthBar != null && collision.gameObject.name == "BottomBar")
             {
                 healthBar.LoseHealth(1);
@@ -55,7 +58,7 @@ public class PivotingBullet : MonoBehaviour
             }
             else
             {
-                Debug.Log("bullet shot");
+                //Debug.Log("bullet shot");
             }
         }
     }

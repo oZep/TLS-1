@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1672048127031313814}
   - component: {fileID: 969211914175591951}
   - component: {fileID: 2203030345477825349}
-  - component: {fileID: 3540795311525882564}
+  - component: {fileID: 6666761567866358401}
   m_Layer: 0
   m_Name: EnemyRocket
   m_TagString: Untagged
@@ -139,7 +139,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3540795311525882564
+--- !u!114 &6666761567866358401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,5 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6e7cd00772d0b4ca67ff61a723fa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   orbitSpeed: 45
