@@ -27,9 +27,7 @@ public class TimedBulletSpawner : MonoBehaviour
     {
 
         if (currentIndex >= spawnSchedule.Count)
-            spawning = false;
-            // channge to 
-            //currentIndex = endLoopIndexStart;
+            currentIndex = endLoopIndexStart;
 
         timeSinceLastSpawn += Time.deltaTime;
 

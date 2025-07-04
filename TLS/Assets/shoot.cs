@@ -1,28 +1,30 @@
 using UnityEngine;
-using UnityEngine.ProBuilder;
 
 public class shoot : MonoBehaviour
 {
-
-
-    // Update is called once per frame
     public GameObject projectile;
     public Transform Top;
     public int speed;
     public int destroyBulletTimer;
+    public float fireRate = 0.2f; // Time in seconds between shots
+
+    private float nextFireTime = 0f;
+
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
-            GameObject bullet = Instantiate(projectile, Top.transform.position, Top.transform.rotation) as GameObject;
-            bullet.GetComponent<Rigidbody>().AddForce(transform.up*speed);
-            
+            nextFireTime = Time.time + fireRate;
+
+            GameObject bullet = Instantiate(projectile, Top.transform.position, Top.transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.up * speed);
+
             Destroy(bullet, destroyBulletTimer);
         }
-        
     }
+
     void OnCollisionEnter(Collision collision)
-        {
+    {
         Debug.Log(collision.gameObject.name);
         Debug.Log(collision.gameObject.tag);
         Debug.Log("YUPYUP");

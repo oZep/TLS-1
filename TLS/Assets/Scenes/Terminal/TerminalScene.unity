@@ -166,21 +166,84 @@ MonoBehaviour:
   spawnSchedule:
   - spawnDelay: 0
     angleDegrees: 0
-    bulletType: {fileID: 2310456129080523105, guid: db2213b858259324bbc113aa2a0833b4, type: 3}
-  - spawnDelay: 3
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 1
     angleDegrees: 90
     bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
   - spawnDelay: 2
     angleDegrees: 12
     bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
-  - spawnDelay: 4
+  - spawnDelay: 2
     angleDegrees: 270
     bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
   - spawnDelay: 0
     angleDegrees: 250
     bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 300
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 5
+    angleDegrees: 350
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 0
+    bulletType: {fileID: 2310456129080523105, guid: db2213b858259324bbc113aa2a0833b4, type: 3}
+  - spawnDelay: 3
+    angleDegrees: 100
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 1
+    angleDegrees: 200
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 1
+    angleDegrees: 300
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 1
+    angleDegrees: 200
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 3
+    angleDegrees: 0
+    bulletType: {fileID: 2310456129080523105, guid: db2213b858259324bbc113aa2a0833b4, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 180
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 2
+    angleDegrees: 0
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 90
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 170
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 2
+    angleDegrees: 250
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 1
+    angleDegrees: 180
+    bulletType: {fileID: 2310456129080523105, guid: db2213b858259324bbc113aa2a0833b4, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 300
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 350
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 5
+    angleDegrees: 40
+    bulletType: {fileID: 2310456129080523105, guid: d0b3a9268e521974e88354f2d590bada, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 30
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 2
+    angleDegrees: 100
+    bulletType: {fileID: 2310456129080523105, guid: db2213b858259324bbc113aa2a0833b4, type: 3}
+  - spawnDelay: 0
+    angleDegrees: 30
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
+  - spawnDelay: 6
+    angleDegrees: 100
+    bulletType: {fileID: 2310456129080523105, guid: 04bccd2a93d398e42b8e7434165a639d, type: 3}
   spawnRadius: 10.5
-  endLoopIndexStart: 0
+  endLoopIndexStart: 17
   pivotCenter: {fileID: 30042383}
 --- !u!4 &121215686 stripped
 Transform:
@@ -236,6 +299,7 @@ MonoBehaviour:
   Top: {fileID: 123466886}
   speed: 3000
   destroyBulletTimer: 2
+  fireRate: 0.1
 --- !u!1 &190609450
 GameObject:
   m_ObjectHideFlags: 0
@@ -64150,7 +64214,7 @@ GameObject:
   - component: {fileID: 1494349250}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
