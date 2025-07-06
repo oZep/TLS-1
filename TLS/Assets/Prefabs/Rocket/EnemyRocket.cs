@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class StraightBullet : MonoBehaviour
+public class PivotingBullet : MonoBehaviour
 {
     public float speed; // How fast it falls
     private float initialX;
     private float initialZ;
     private hearts healthBar;
+    private Transform pivotPoint;
+    public float orbitSpeed = 45f; // Added: Degrees per second to orbit
 
     void Start()
     {
@@ -15,17 +17,26 @@ public class StraightBullet : MonoBehaviour
         initialX = transform.position.x;
         initialZ = transform.position.z;
         healthBar = FindFirstObjectByType<hearts>();
-
+        
+        // Added: Find pivot point
+        pivotPoint = GameObject.Find("CenterPoint").transform;
     }
-
 
     void Update()
     {
-        // Move down over time (only affect Y position)
+        // Original falling code
         transform.position += Vector3.down * speed * Time.deltaTime;
 
-        // Lock X and Z positions to their initial values
-        transform.position = new Vector3(initialX, transform.position.y, initialZ);
+        // Modified: Replace position lock with orbiting
+        if (pivotPoint != null)
+        {
+            transform.RotateAround(pivotPoint.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // Fallback to original behavior if no pivot
+            transform.position = new Vector3(initialX, transform.position.y, initialZ);
+        }
         
         if (Input.GetButtonDown("Cancel"))
         {
@@ -35,11 +46,12 @@ public class StraightBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "TopBar" && collision.gameObject.name != "EnemyRocket(Clone)" && collision.gameObject.name != "EnemyShip(Clone)")
+        transform.RotateAround(pivotPoint.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        if (collision.gameObject.name != "TopBar" && collision.gameObject.name != "EnemyShip(Clone)" && collision.gameObject.name != "EnemyBullet(Clone)")
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
-
             Destroy(gameObject);
+
             if (healthBar != null && collision.gameObject.name == "BottomBar")
             {
                 healthBar.LoseHealth(1);
@@ -47,8 +59,7 @@ public class StraightBullet : MonoBehaviour
             }
             else
             {
-                Debug.Log("bullet shot");
-                //Debug.LogError("healthBar reference is null!");
+                //Debug.Log("bullet shot");
             }
         }
     }
